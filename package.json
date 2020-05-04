@@ -1,0 +1,45 @@
+{
+    "name": "texture-json",
+    "displayName": "texture-json",
+	"publisher": "hans0000",
+    "description": "Provides JSON validations for Minecraft texture.",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.44.0"
+    },
+	"keywords": [
+		"minecraft",
+		"texture",
+		"json"
+	],
+    "categories": [
+		"Linters",
+		"Other"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "json",
+            "extensions": [
+                "mcmeta"
+            ]
+        }],
+        "jsonValidation": [
+            {
+                "fileMatch": "pack.mcmeta",
+                "url": "./src/pack.mcmeta.json"
+            },
+            {
+                "fileMatch": "assets/**/blockstates/*.json",
+                "url": "./src/blockstates.json"
+            },
+            {
+                "fileMatch": "assets/**/models/block/*.json",
+                "url": "./src/models-block.json"
+            },
+            {
+                "fileMatch": "assets/**/models/item/*.json",
+                "url": "./src/models-item.json"
+            }
+        ]
+    }
+}
