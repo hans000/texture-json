@@ -1,9 +1,7 @@
 # Change Log
 
-All notable changes to the "texture-json" extension will be documented in this file.
+## 2020-05-05
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
-
-## [Unreleased]
-
-- Initial release
+- 1.0.2发布
+- 添加title属性
+- 修复blockstates文件bug

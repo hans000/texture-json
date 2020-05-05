@@ -10,17 +10,22 @@
         },
         "parent": {
             "type": "string",
+            "title": "parent 父级",
             "description": "继承其他模型文件，格式为命名空间ID。如果同时设置了parent和elements，那么此模型的elements标签将覆盖父类模型parent下的elements标签"
         },
         "ambientocclusion": {
             "type": "boolean",
+            "title": "ambient occlusion 环境遮挡",
             "description": "是否使用环境遮挡，默认为true。如果设置了parent，则其父模型的ambientocclusion标签会覆盖该模型的ambientocclusion标签"
         },
         "display": {
+            "title": "display 显示",
+            "description": "列出物品模型于不同位置下的显示设置",
             "$ref": "#/definitions/positionProps"
         },
         "textures": {
             "type": "object",
+            "title": "textures 纹理",
             "description": "定义方块颗粒的材质以及模型所使用的材质变量。键值可以为材质文件的路径，格式为命名空间ID，也可以为另一个材质变量",
             "properties": {
                 "__comment": {
@@ -39,6 +44,8 @@
         },
         "elements": {
             "type": "array",
+            "title": "elements 元素",
+            "minItems": 1,
             "description": "列出模型的所有元素,这些元素只能为长方体形态。如果同时设置了parent和elements，此模型的elements标签将覆盖父类模型parent下的elements标签",
             "items": {
                 "$ref": "#/definitions/element"
@@ -94,14 +101,17 @@
             "additionalProperties": false,
             "properties": {
                 "rotation": {
+                    "title": "rotation 旋转",
                     "description": "根据[x, y, z]格式，使模型相对于对应轴进行旋转",
                     "$ref": "#/definitions/vector3"
                 },
                 "translation": {
+                    "title": "translation 移动",
                     "description": "根据[x, y, z]格式，使模型相对于对应轴进行移动。如果值大于80，会作为80处理，小于-80时则看作-80",
                     "$ref": "#/definitions/vector3"
                 },
                 "scale": {
+                    "title": "scale 缩放",
                     "description": "根据[x, y, z]格式，使模型相对于对应轴进行缩放。当值大于4时，效果等同于4",
                     "$ref": "#/definitions/vector3"
                 }
@@ -200,13 +210,16 @@
                 "texture": {
                     "description": "指定所使用的材质变量，变量前加上#。材质变量于上文的材质变量名定义",
                     "type": "string",
+                    "title": "texture 纹理",
                     "pattern": "^#.+"
                 },
                 "cullface": {
+                    "title": "cullface 表面",
                     "description": "指定当方块的指定面被渲染不透明方块覆盖时，父标签所定义的面是否不渲染",
                     "$ref": "#/definitions/faceType"
                 },
                 "rotation": {
+                    "title": "rotation 旋转",
                     "description": "根据特定的角度旋转材质。可以为0，90，180或270。默认为0。旋转不会影响到uv所指定的材质部分，而是此部分的旋转角度",
                     "type": "number",
                     "enum": [0, 90, 180, 270]
@@ -219,73 +232,90 @@
         },
         "element": {
             "type": "object",
-            "description": "一个元素",
+            "title": "element 元素",
+            "description": "定义一个元素",
             "additionalProperties": false,
+            "required": ["from", "to", "faces"],
             "properties": {
                 "__comment": {
                     "type": "string",
                     "description": "注释"
                 },
                 "from": {
+                    "title": "from 起始位置",
                     "description": "根据[x, y, z]格式，指定一个长方体的起始点。数值必须为-16到32之间",
                     "$ref": "#/definitions/vector3-1632"
                 },
                 "to": {
+                    "title": "to 结束位置",
                     "description": "根据[x, y, z]格式，指定一个长方体的结束点。数值必须为-16到32之间",
                     "$ref": "#/definitions/vector3-1632"
                 },
                 "rotation": {
                     "type": "object",
+                    "title": "rotation 旋转",
                     "additionalProperties": false,
                     "description": "设置元素的旋转",
                     "properties": {
                         "origin": {
+                            "title": "origin 旋转中心",
                             "description": "根据坐标[x, y, z]设置旋转中心",
                             "$ref": "#/definitions/vector3"
                         },
                         "axis": {
+                            "title": "axis 旋转轴",
                             "description": "旋转的一个且只能为一个轴，可以为x，y或z",
                             "$ref": "#/definitions/axis"
                         },
                         "angle": {
+                            "title": "angle 旋转角",
                             "description": "旋转的角度。可以为45到-45度，以22.5度为增量",
                             "$ref": "#/definitions/angle"
                         },
                         "rescale": {
+                            "title": "rescale 缩放",
                             "description": "是否缩放为整个长方体大小，默认false",
                             "type": "boolean"
                         }
                     }
                 },
                 "shade": {
+                    "title": "shade 阴影",
                     "description": "是否渲染阴影，默认true",
                     "type": "boolean"
                 },
                 "faces": {
+                    "title": "faces 面",
                     "description": "包含单个element的所有面。若有一个面没有定义，则不渲染此面",
                     "type": "object",
                     "properties": {
                         "east": {
+                            "title": "east 东面",
                             "description": "面向东侧的面，x轴正方向",
                             "$ref": "#/definitions/faceProps"
                         },
                         "south": {
+                            "title": "south 南面",
                             "description": "面向南侧的面，z轴正方向",
                             "$ref": "#/definitions/faceProps"
                         },
                         "west": {
+                            "title": "west 西面",
                             "description": "面向西侧的面，x轴负方向",
                             "$ref": "#/definitions/faceProps"
                         },
                         "north": {
+                            "title": "north 北面",
                             "description": "面向北侧的面，z轴负方向",
                             "$ref": "#/definitions/faceProps"
                         },
                         "up": {
+                            "title": "up 上面",
                             "description": "面向上侧的面，y轴正方向",
                             "$ref": "#/definitions/faceProps"
                         },
                         "down": {
+                            "title": "down 底面",
                             "description": "面向底侧的面，y轴负方向",
                             "$ref": "#/definitions/faceProps"
                         }

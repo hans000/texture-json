@@ -3,7 +3,7 @@
     "displayName": "texture-json",
 	"publisher": "hans0000",
     "description": "Provides JSON validations for Minecraft texture.",
-    "version": "0.0.1",
+    "version": "1.0.2",
     "engines": {
         "vscode": "^1.44.0"
     },
@@ -17,6 +17,14 @@
 		"Linters",
 		"Other"
     ],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/haima16/texture-json.git"
+	},
+	"bugs": {
+		"url": "https://github.com/haima16/texture-json/issues"
+	},
+	"homepage": "https://github.com/haima16/texture-json#readme",
     "contributes": {
         "languages": [{
             "id": "json",

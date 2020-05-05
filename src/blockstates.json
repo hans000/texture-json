@@ -7,12 +7,10 @@
             "properties": {
                 "variants": {
                     "type": "object",
-                    "description": "设置变种与对应的模型，列出此方块的所有变种",
-                    "additionalProperties": false,
-                    "patternProperties": {
-                        "^[A-Za-z0-9_]+=[A-Za-z0-9_]+$": {
-                            "$ref": "#/definitions/modelprops"
-                        }
+                    "title": "variants 穷举",
+                    "description": "设置不同状态对应的模型",
+                    "additionalProperties": {
+                        "$ref": "#/definitions/modelprops"
                     }
                 }
             },
@@ -21,8 +19,9 @@
         {
             "properties": {
                 "multipart": {
+                    "title": "multipart 组装",
                     "type": "array",
-                    "description": "取代variants，基于方块状态属性以来组合模型",
+                    "description": "代替variants，基于方块状态属性以来组合模型",
                     "items": {
                         "type": "object",
                         "required": ["apply"],
@@ -83,18 +82,22 @@
             "properties": {
                 "model": {
                     "type": "string",
+                    "title": "model 模型",
                     "description": "指定模型文件的路径，格式为命名空间ID"
                 },
                 "x": {
                     "$ref": "#/definitions/degree",
+                    "title": "x旋转轴",
                     "description": "模型相对于x轴的旋转，增量90度。"
                 },
                 "y": {
                     "$ref": "#/definitions/degree",
+                    "title": "y旋转轴",
                     "description": "模型相对于y轴的旋转，增量90度。"
                 },
                 "uvlock": {
                     "type": "boolean",
+                    "title": "uvlock贴图锁定",
                     "description": "可为true或false（默认）。设置为true将锁定方块材质的旋转方向。这样在使用上面的 x和 y标签时材质将不会跟着方块一起旋转。"
                 }
             }
@@ -107,23 +110,28 @@
             "properties": {
                 "model": {
                     "type": "string",
+                    "title": "model 模型",
                     "description": "指定模型文件的路径，格式为命名空间ID"
                 },
                 "x": {
                     "$ref": "#/definitions/degree",
+                    "title": "x旋转轴",
                     "description": "模型相对于x轴的旋转，增量90度。"
                 },
                 "y": {
                     "$ref": "#/definitions/degree",
+                    "title": "y旋转轴",
                     "description": "模型相对于y轴的旋转，增量90度。"
                 },
                 "uvlock": {
                     "type": "boolean",
+                    "title": "uvlock 贴图锁定",
                     "description": "可为true或false（默认）。设置为true将锁定方块材质的旋转方向。这样在使用上面的 x和 y标签时材质将不会跟着方块一起旋转。"
                 },
                 "weight": {
                     "type": "integer",
                     "default": 1,
+                    "title": "weight 权重",
                     "description": "设置模型在游戏中被选用的几率，默认为1（100%）。如果多于一个模型被用在同一个变种，每个模型被选中的几率将会为此模型的weight值除以所有模型weight的总和。"
                 }
             }
@@ -131,11 +139,12 @@
         "modelprops": {
             "oneOf": [
                 {
-                    "$ref": "#/definitions/model"
+                    "$ref": "#/definitions/model",
+                    "description": "键名为由逗号分隔的方块状态（facing=east,half=lower）"
                 },
                 {
                     "type": "array",
-                    "description": "键名为由逗号分隔的方块状态。使用不同的标签指定不同模型，游戏渲染时将会在列表内随机选择一个模型",
+                    "description": "键名为由逗号分隔的方块状态（facing=east,half=lower）。使用不同的标签指定不同模型，游戏渲染时将会在列表内随机选择一个模型",
                     "items": {
                         "$ref": "#/definitions/model+weight"
                     }
