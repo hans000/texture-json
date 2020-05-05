@@ -4,11 +4,11 @@
 
 
 
-![Honeycam 2020-05-05 17-57-34](https://github.com/haima16/texture-json/blob/master/assets/hover.gif)
+![Honeycam 2020-05-05 17-57-34](https://raw.githubusercontent.com/haima16/texture-json/master/assets/hover.gif)
 
-![Honeycam 2020-05-05 18-01-12](https://github.com/haima16/texture-json/blob/master/assets/validitor.gif)
+![Honeycam 2020-05-05 18-01-12](https://raw.githubusercontent.com/haima16/texture-json/master/assets/validitor.gif)
 
-![Honeycam 2020-05-05 18-03-35](https://github.com/haima16/texture-json/blob/master/assets/complete.gif)
+![Honeycam 2020-05-05 18-03-35](https://raw.githubusercontent.com/haima16/texture-json/master/assets/complete.gif)
 
 ## 感谢
 
