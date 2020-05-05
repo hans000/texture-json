@@ -3,7 +3,7 @@
     "displayName": "texture-json",
 	"publisher": "hans0000",
     "description": "Provides JSON validations for Minecraft texture.",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "engines": {
         "vscode": "^1.44.0"
     },
