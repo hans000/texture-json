@@ -1,9 +1,9 @@
 {
     "name": "texture-json",
-    "displayName": "texture-json",
+    "displayName": "Minecraft Texture Json",
 	"publisher": "hans0000",
-    "description": "Provides JSON validations for Minecraft texture.",
-    "version": "1.0.3",
+    "description": "this extention has been DEPRECATED. New extention is named minecraft-assets-helper",
+    "version": "1.0.5",
     "engines": {
         "vscode": "^1.44.0"
     },

@@ -1,4 +1,6 @@
-# texture-json
+# texture-json (DEPRECATED)
+
+新的扩展名为 [minecraft-assets-helper](https://github.com/hans000/minecraft-assets-helper)
 
 用于编写minecraft资源包json文件，对资源包json文件进行校验，提供部分代码补全。
 
